@@ -24,6 +24,7 @@ import com.myspace.subscription.exception.SubscriptionNotFoundException;
 import com.myspace.subscription.mapper.SubscriptionReqMapper;
 import com.myspace.subscription.model.Subscription;
 import com.myspace.subscription.util.Constants;
+import com.myspace.subscription.util.Converter;
 import com.myspace.subscription.util.ErrorCode;
 
 @Service
@@ -134,7 +135,8 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 		logger.info("Inside Method SaveSubscription ", CLASS_NAME);
 		try {
 			
-			Subscription subscription=SubscriptionReqMapper.subscriptionReqMapper.mapSubscriptionRequestToEntity(createSubRequest);
+			//Subscription subscription=SubscriptionReqMapper.subscriptionReqMapper.mapSubscriptionRequestToEntity(createSubRequest);
+			Subscription subscription = Converter.mapSubscriptionReqToEntity(createSubRequest);
 			subscription.setLastUpdate(new Date(System.currentTimeMillis()));
 			subscription = addSubscriptionCommand.addSubscription(subscription);
 			

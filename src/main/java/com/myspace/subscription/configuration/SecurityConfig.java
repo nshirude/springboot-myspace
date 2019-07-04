@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     	logger.info("Inside method configure ", CLASS_NAME);
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("admin_1").password("pass").roles("ADMIN");      
+                .withUser("admin").password("password").roles("ADMIN");      
     }
 
     @Override
@@ -30,8 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests()
                 .antMatchers("/api/**")
-                .permitAll()
-                //.authenticated()
+                //.permitAll()
+                .authenticated()
                 .and()
                 .httpBasic();
         httpSecurity.csrf().disable();

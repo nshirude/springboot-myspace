@@ -56,17 +56,17 @@ public class SubscriptionServiceTest {
 	@Before
 	public void setUp() {
 		this.subscription = new Subscription();
-		this.subscription.setId(1001);
-		this.subscription.setMonthlyPrice(112.50);
+		this.subscription.setId(11);
+		this.subscription.setMonthlyPrice(254.50);
 		this.subscription.setLastUpdate(new Date(0));
-		this.subscription.setName("Custormer1");
+		this.subscription.setName("s_name-1");
 
 		this.createSubscriptionRequest = new CreateSubscriptionRequest();
-		this.createSubscriptionRequest.setMonthlyPrice(112.50);
-		this.createSubscriptionRequest.setName("Custormer1");
+		this.createSubscriptionRequest.setMonthlyPrice(254.50);
+		this.createSubscriptionRequest.setName("s_name-1");
 
 		this.updateSubRequest = new UpdateSubscriptionRequest();
-		this.updateSubRequest.setMonthlyPrice(102.22);
+		this.updateSubRequest.setMonthlyPrice(85.26);
 		this.updateSubRequest.setName("Custormer1");
 
 		this.subscriptionList = new ArrayList<>();
