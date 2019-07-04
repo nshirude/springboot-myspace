@@ -1,0 +1,135 @@
+
+spring:
+  datasource:
+    url: jdbc:h2:file:D:\\myspace\\subscription
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+    
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    
+  h2:
+    console:
+      enabled: true
+      
+hystrix: 
+  command: 
+    default: 
+      circuitBreaker: 
+        enabled: true
+        errorThresholdPercentage: 10
+        forceClosed: false
+        forceOpen: false
+        requestVolumeThreshold: 5
+        sleepWindowInMilliseconds: 100
+      execution: 
+        isolation: 
+          semaphore: 
+            maxConcurrentRequests: 100
+          thread: 
+            interruptOnCancel: false
+            interruptOnTimeout: 1000
+            timeoutInMilliseconds: 30000
+      fallback: 
+        enabled: true
+        isolation: 
+          semaphore: 
+            maxConcurrentRequests: 100
+        timeout: 
+          enabled: true
+      metrics: 
+        healthSnapshot: 
+          intervalInMilliseconds: 500
+        rollingPercentile: 
+          bucketSize: 100
+          enabled: true
+          numBuckets: 6
+          timeInMilliseconds: 60000
+        rollingStats: 
+          numBuckets: 10
+          timeInMilliseconds: 10000
+      requestCache: 
+        enabled: false
+      requestLog: 
+        enabled: false
+    addSubscriptionHystrix: 
+      circuitBreaker: 
+        errorThresholdPercentage: 50
+        requestVolumeThreshold: 5
+        sleepWindowInMilliseconds: 100
+      execution: 
+        isolation:
+          thread: 
+            timeoutInMilliseconds: 30000
+      metrics: 
+        healthSnapshot: 
+          intervalInMilliseconds: 500
+        rollingPercentile: 
+          bucketSize: 100
+          enabled: true
+          numBuckets: 6
+          timeInMilliseconds: 60000
+        rollingStats: 
+          numBuckets: 10
+          timeInMilliseconds: 10000
+      requestCache: 
+        enabled: false
+      requestLog: 
+        enabled: false
+    getSubByIdHystrix: 
+      circuitBreaker: 
+        errorThresholdPercentage: 50
+        requestVolumeThreshold: 5
+        sleepWindowInMilliseconds: 100
+      execution: 
+        isolation:
+          thread: 
+            timeoutInMilliseconds: 30000
+      metrics: 
+        healthSnapshot: 
+          intervalInMilliseconds: 500
+        rollingPercentile: 
+          bucketSize: 100
+          enabled: true
+          numBuckets: 6
+          timeInMilliseconds: 60000
+        rollingStats: 
+          numBuckets: 10
+          timeInMilliseconds: 10000
+      requestCache: 
+        enabled: false
+      requestLog: 
+        enabled: false      
+    getAllSubHystrix: 
+      circuitBreaker: 
+        errorThresholdPercentage: 50
+        requestVolumeThreshold: 5
+        sleepWindowInMilliseconds: 100
+      execution: 
+        isolation:
+          thread: 
+            timeoutInMilliseconds: 30000
+      metrics: 
+        healthSnapshot: 
+          intervalInMilliseconds: 500
+        rollingPercentile: 
+          bucketSize: 100
+          enabled: true
+          numBuckets: 6
+          timeInMilliseconds: 60000
+        rollingStats: 
+          numBuckets: 10
+          timeInMilliseconds: 10000
+      requestCache: 
+        enabled: false
+      requestLog: 
+        enabled: false                     
+  threadpool: 
+    addSubscriptionHystrix: 
+      allowMaximumSizeToDivergeFromCoreSize: false
+      coreSize: 5
+      keepAliveTimeMinutes: 1
+      maxQueueSize: -1
+      maximumSize: 5
+      queueSizeRejectionThreshold: 5  
