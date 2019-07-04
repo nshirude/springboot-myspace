@@ -27,7 +27,7 @@ public class FindAllSubscriptionCmd {
 	 * This is Hystrix command to find all available subscription in cache
 	 * @return Subscription
 	 */
-	@Cacheable(cacheNames="subCache",value="subCache",keyGenerator="customKeyGenerator")
+	@Cacheable(cacheNames="subCache",value="subCache",keyGenerator="KeyGen")
 	@HystrixCommand(groupKey = "getAllSubHystrix", commandKey = "getAllSubHystrix", fallbackMethod = "getAllSubFallback")
 	public List<Subscription> findAllSubscription()  {
 		logger.info("Inside method findAllSubscription " , CLASS_NAME);

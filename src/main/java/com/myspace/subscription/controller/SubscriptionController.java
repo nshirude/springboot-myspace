@@ -58,7 +58,7 @@ public class SubscriptionController {
 			@ApiResponse(code = 200, message = "OK", response = GetSubscriptionResponse.class) })
 	@GetMapping(value = "${api.subscriptionservice.getall.subscriptions.GET.uri}")
 	public ResponseEntity<GetSubscriptionResponse> retrieveAllSubscriptions(
-			@RequestHeader(value = "trackingId", required = true) String trackingId) {
+			@RequestHeader(value = "traceId", required = true) String trackingId) {
 
 		return new ResponseEntity<>(subscriptionService.retrieveAllSubscription(), HttpStatus.OK);
 	}
