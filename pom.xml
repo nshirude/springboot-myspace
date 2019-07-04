@@ -152,8 +152,8 @@
 						<exclude>**/com/myspace/subscription/SubscriptionServiceApplication.class</exclude>
 						<exclude>**/com/myspace/subscription/repository/*</exclude>
 						<exclude>**/com/myspace/subscription/exception/SubscriptionException.class</exclude>
+						<exclude>**/com/myspace/subscription/exception/SubscriptionNotFoundException.class</exclude>
 						<exclude>**/com/myspace/subscription/configuration/*</exclude>
-						<exclude>**/com/myspace/subscription/domain/*</exclude>
 						<exclude>**/com/myspace/subscription/dto/addsubscription/*</exclude>
 						<exclude>**/com/myspace/subscription/dto/fetchSubscription/*</exclude>
 						<exclude>**/com/myspace/subscription/dto/updateSubscription/*</exclude>
@@ -161,7 +161,7 @@
 						<exclude>**/com/myspace/subscription/mapper/*</exclude>
 						<exclude>**/com/myspace/subscription/repository/*</exclude>
 						<exclude>**/com/myspace/subscription/util/*</exclude>
-						<exclude>**/com/myspace/subscription/service/SubscriptionService.class</exclude>
+						<exclude>**/com/myspace/subscription/service/SubscriptionServiceApplication.class</exclude>
 					</excludes>
 				</configuration>
 				<executions>
@@ -203,6 +203,7 @@
                 <targetPath>${project.build.outputDirectory}</targetPath>
                 <includes>
                     <include>application.properties</include>
+                    <include>application.yml</include>
                 </includes>
             </resource>
         </resources>
